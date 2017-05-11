@@ -1,0 +1,145 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Name>DjangoWebProject2</Name>
+    <RootNamespace>DjangoWebProject2</RootNamespace>
+    <InterpreterId>Global|PythonCore|3.5-32</InterpreterId>
+    <IsWindowsApplication>False</IsWindowsApplication>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>4adc1104-3f6b-4949-a9f9-086115ec017a</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <DjangoSettingsModule>project.settings</DjangoSettingsModule>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <OutputPath>.</OutputPath>
+    <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="conf\reload.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="project\database.py" />
+    <Compile Include="project\settings.py" />
+    <Compile Include="project\urls.py" />
+    <Compile Include="project\__init__.py" />
+    <Compile Include="servis\admin.py" />
+    <Compile Include="servis\apps.py" />
+    <Compile Include="servis\migrations\__init__.py" />
+    <Compile Include="servis\models.py" />
+    <Compile Include="servis\tests.py" />
+    <Compile Include="servis\views.py" />
+    <Compile Include="servis\__init__.py" />
+    <Compile Include="welcome\admin.py" />
+    <Compile Include="welcome\database.py" />
+    <Compile Include="welcome\migrations\0001_initial.py" />
+    <Compile Include="welcome\migrations\__init__.py" />
+    <Compile Include="welcome\models.py" />
+    <Compile Include="welcome\tests.py" />
+    <Compile Include="welcome\views.py" />
+    <Compile Include="welcome\__init__.py" />
+    <Compile Include="wsgi.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="db.sqlite3" />
+    <Content Include="openshift\scripts\run-in-container.sh" />
+    <Content Include="openshift\templates\django-postgresql-persistent.json" />
+    <Content Include="openshift\templates\django-postgresql.json" />
+    <Content Include="openshift\templates\django.json" />
+    <Content Include="project\__pycache__\database.cpython-34.pyc" />
+    <Content Include="project\__pycache__\settings.cpython-34.pyc" />
+    <Content Include="project\__pycache__\urls.cpython-34.pyc" />
+    <Content Include="project\__pycache__\__init__.cpython-34.pyc" />
+    <Content Include="README.md" />
+    <Content Include="requirements.txt" />
+    <Content Include="servis\templates\base.html" />
+    <Content Include="servis\templates\servis.html" />
+    <Content Include="servis\templates\registration\login.html" />
+    <Content Include="welcome\migrations\__pycache__\0001_initial.cpython-34.pyc" />
+    <Content Include="welcome\migrations\__pycache__\__init__.cpython-34.pyc" />
+    <Content Include="welcome\templates\welcome\index.html" />
+    <Content Include="welcome\__pycache__\admin.cpython-34.pyc" />
+    <Content Include="welcome\__pycache__\database.cpython-34.pyc" />
+    <Content Include="welcome\__pycache__\models.cpython-34.pyc" />
+    <Content Include="welcome\__pycache__\views.cpython-34.pyc" />
+    <Content Include="welcome\__pycache__\__init__.cpython-34.pyc" />
+    <Content Include="__pycache__\wsgi.cpython-34.pyc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="conf\" />
+    <Folder Include="openshift\" />
+    <Folder Include="openshift\scripts\" />
+    <Folder Include="openshift\templates\" />
+    <Folder Include="project\" />
+    <Folder Include="project\__pycache__\" />
+    <Folder Include="servis\" />
+    <Folder Include="servis\migrations\" />
+    <Folder Include="servis\templates\" />
+    <Folder Include="servis\templates\registration\" />
+    <Folder Include="welcome\" />
+    <Folder Include="welcome\migrations\" />
+    <Folder Include="welcome\migrations\__pycache__\" />
+    <Folder Include="welcome\templates\" />
+    <Folder Include="welcome\templates\welcome\" />
+    <Folder Include="welcome\__pycache__\" />
+    <Folder Include="__pycache__\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.5-32" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

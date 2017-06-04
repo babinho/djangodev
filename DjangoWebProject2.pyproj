@@ -67,6 +67,8 @@
     <Content Include="project\__pycache__\__init__.cpython-34.pyc" />
     <Content Include="README.md" />
     <Content Include="requirements.txt" />
+    <Content Include="servis\static\vuetifull.css" />
+    <Content Include="servis\static\vuetifull.js" />
     <Content Include="servis\templates\base.html" />
     <Content Include="servis\templates\servis.html" />
     <Content Include="servis\templates\registration\login.html" />
@@ -89,6 +91,7 @@
     <Folder Include="project\__pycache__\" />
     <Folder Include="servis\" />
     <Folder Include="servis\migrations\" />
+    <Folder Include="servis\static\" />
     <Folder Include="servis\templates\" />
     <Folder Include="servis\templates\registration\" />
     <Folder Include="welcome\" />

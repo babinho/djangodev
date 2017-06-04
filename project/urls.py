@@ -2,7 +2,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from welcome.views import index, health
-from servis.views import getNalog, servisLogin, servisLogout, servis
+from servis.views import getNalog, servisLogin, servisLogout, servis, getNalogList
 from django.contrib.auth import views as auth_views
 
 
@@ -18,5 +18,6 @@ urlpatterns = [
     url(r'^servis/$', servis),
     url(r'^servis/logout$', servisLogout),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^getNalogList/', getNalogList),
     
 ]

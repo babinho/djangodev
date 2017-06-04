@@ -1,4 +1,4 @@
-﻿<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
   <meta charset="utf-8" />
@@ -20,9 +20,21 @@
   <link rel="stylesheet" href=
   "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type=
   "text/css" />
+  <script src="https://unpkg.com/vue"
+        type="text/javascript">
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.28.5/date_fns.min.js"
+        type="text/javascript">
+    </script>
+  <link rel="stylesheet" href="/static/vuetifull.css" type="text/css" />
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" type=
   "text/javascript">
+    
 </script>
+  <script src="/static/vuetifull.js" type="text/javascript">
+    </script>
+  
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
   integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
   crossorigin="anonymous" type="text/javascript">
@@ -74,11 +86,16 @@ kad bude optimizacija -->
         box-shadow: 1px 1px 2px 2px gray;
         padding: 15px;  
   }
+
+  
+
   /*]]>*/
   </style>
 </head>
 
 <body>
+  <div id="app">
+  {% verbatim %}
   <div class="admin-panel">
     <div class="overlay">
       <div class="container">
@@ -92,7 +109,8 @@ kad bude optimizacija -->
 
             <div class="korisnik">
               <h4>Korisnik</h4>
-
+              
+              
               <p>Signed in as <span class="label label-success">Dubo</span> Privileges
               <span class="label label-info">Administrator</span></p><br />
 
@@ -105,12 +123,14 @@ kad bude optimizacija -->
                 </form>
             </div>
 
-            <div class="opcije">
+            <div class="opcije" >
+             
+              
               <div class="row">
                 
 
                 <div class="col-md-6 opcije-nalozi">
-                  <h5>Rad s nalozima</h5><button type="button" class="btn btn-primary"
+                  <h5>Rad s nalozima   </h5><button type="button" class="btn btn-primary"
                   data-toggle="modal" data-target="#myModal"> Unos servisnog
                   naloga</button><br />
                   <button type="button" class="btn btn-primary"> Izmjeni servisnog
@@ -121,9 +141,10 @@ kad bude optimizacija -->
               </div>
             </div>
 
+          
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
               <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content" >
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label=
                     "Close"><span aria-hidden="true">&#215;</span></button>
@@ -131,38 +152,41 @@ kad bude optimizacija -->
                     <h4 class="modal-title">Unos servisnog naloga</h4>
                   </div>
 
-                  <div class="modal-body">
-                    < role="form">
-                      <h4>Kupac</h4>
+                  <div class="modal-body" >
+                      <h4>Kupac  </h4> 
 
                       <div class="form-group kupacInfo">
                         <label for="imeKupca">Ime kupca</label> <input type="text" class=
-                        "form-control" id="imeKupca" placeholder="Unesi ime kupca" />
+                        "form-control" id="imeKupca" placeholder="Unesi ime kupca" :value="nalog.ime" />
                         <label for="prezimeKupca">Prezime kupca</label> <input type=
                         "text" class="form-control" id="prezimeKupca" placeholder=
-                        "Unesi prezime kupca" />
+                        "Unesi prezime kupca" :value="nalog.prezime" />
                       </div><br />
 
                       <h4>Uređaj</h4>
 
                       <div class="form-group uredjajInfo">
                         <label for="vrstaUredjaja">Vrsta uređaja</label>
-                        <select class="form-control" id="vrsta_uredaja">
+                        <select class="form-control" id="vrsta">
                           <option v-for="vrsta in vrste">
-                            {{vrsta.vrsta}}
+                            {{vrsta}}
                           </option>
 
                          
                         </select> <label for="markaUredjaja">Marka Uređaja</label>
-                        <select class="form-control" id="marke">
+                        <select class="form-control" id="marka">
                           <option v-for="marka in marke">
-                            {{ marka.marka }}
+                            {{ marka }}
                           </option>
+                        </select>
 
-                        </select> 
                         <label for="modelUredjaja">Model uredjaja</label>
-                        <input type="text" class="form-control" id="model_uredaja"
-                        placeholder="Unesi model uređaja" />
+                        <input type="text" class="form-control" 
+                        placeholder="Unesi model uređaja" :value="nalog.model"/>
+
+                        <label for="serijskiBroj">Serijski broj uređaja</label>
+                        <input type="text" class="form-control" 
+                        placeholder="Unesi model uređaja" :value="nalog.serijski_br"/>
                       
                       </div><br/>
 
@@ -170,30 +194,39 @@ kad bude optimizacija -->
 
                       <div class="form-group kvarInfo">
                         <label for="opis Kvara">Opis kvara</label> 
-                        <textarea class="form-control" rows="5" id="opiskvara">
-</textarea><br />
+                        <textarea class="form-control" rows="5" id="opiskvara" >
+                            {{nalog.opis_k}}
+                          </textarea><br />
                         <label for="pretpostavkaKvara">Pretpostavka kvara</label> 
                         <textarea class="form-control" rows="5" id="pretpostavkaKvara">
-</textarea><br />
+                            {{nalog.opis_s}}
+                        </textarea><br />
+                        <label for="cijena">Pretpostavka cijene</label> 
                         <input type="text" class="form-control" id="cijenaKvara"
-                        placeholder="Unesi cijenu" />
+                        placeholder="Unesi cijenu" :value="nalog.cijena" />
                       </div><br />
 
                       <h4>Dodatno</h4>
 
                       <div class="form-group dodatnoInfo">
-                        <label for="dodatnoInfo">Cijena</label> 
-                          <input type="text" class=
-                        "form-control" id="cijenaKvara" placeholder="Unesi cijenu" />
                         <label for="dodatnaOprema">Dodatno</label>
                         <input type="text"
                         class="form-control" id="dodatnaOprema" placeholder=
-                        "Adapter,torba ..." />
+                        "Adapter,torba ..." :value="nalog.dodatno" />
                       </div>
+
+                      <label for="status">Status naloga</label>
+                        <select class="form-control" id="status">
+                          <option v-for="status in statusi">
+                            {{ status }}
+                          </option>
+                        </select>
+
+
                       <button class="btn btn-primary" onclick="dohvatiZaSelection('marke')">
                         Unesi servisni nalog
                       </button>
-                      <button class="btn btn-primary" onclick="test(data)">
+                      <button class="btn btn-primary" onclick="test()">
                         Unesi servisni nalog
                       </button>
                   </div>
@@ -205,10 +238,12 @@ kad bude optimizacija -->
                 </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
+           </div>
           </div>
         </div>
       </div>
-    </div><!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    </div>
+   </div><!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type=
     "text/javascript">
 </script> 
@@ -218,10 +253,7 @@ kad bude optimizacija -->
         "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"
             type="text/javascript">
     </script>
-      <script src=
-        "https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.3/vue.min.js"
-        type="text/javascript">
-    </script>
+      
 <script type="text/javascript">
 
 
@@ -229,71 +261,48 @@ kad bude optimizacija -->
     $('#myInput').focus();
     })
 
-function test(data){
-          
-}
- function ajax(data,url,sucess){
-		console.log('ušlo u metodu');
+  function ajax(data,url,success){
 			$.ajax({url: url,
 					success: function(result){
-						sucess(result);
-					},
+            success(result)
+          },
 					data : data
 				});
 	}
-	
-	function getSelected(id){
-		return $('#'+id)[0].value;
-	}
-	function getCheckbox(id){
-	
-		return $('#'+id).is(':checked');
-		
-	}
-	
-	function dohvatiZaSelection(id){
-		ajax({selection : id},'/selection',function(result){
-			//console.log(result);
-			var selection = document.getElementById('marke');
-			
-			console.log(selection);
-			console.log(selection.length);
-			selection.innerHTML = "";
-			result.forEach(function(row){
-			
-				var opt = document.createElement('option');
-				opt.value = row.Marka;
-				opt.innerHTML = row.Marka;
-				selection.add(opt);
-			});
-		});
-	}
-	//dohvatiZaSelection('marke')
-	
-	function getAll(){
-	
-		nalog = {
-			ime:getSelected('ime'),
-			prezime:getSelected('prezime'),
-			vrsta:getSelected('vrsta'),
-			marka:getSelected('marka'),
-			model:getSelected('model'),
-			opiskvara:getSelected('opiskvara'),
-			pretpkvara:getSelected('pretpkvara'),
-			pretpcijena:getSelected('pretpcijena'),
-			serviser:getSelected('serviser'),
-			torba:getCheckbox('torba'),
-			adapter:getCheckbox('adapter')
-			}
-			
-		return nalog;
-	}
-	
-	function popuniSelection(id){
-		
-	}
-    </script>
-  </div>
+
+   getNalogList = function(){
+    ajax(null,'/getNalogList/',function(result){
+      console.log(result.data);
+      app.nalozi = result.data;
+    });
+  }
+
+
+</script>
+
+<script>
+    
+    var app = new Vue({
+      el: '#app',
+      data: {
+        nalog : {
+          ime : 'pero',
+          prezime : 'peric',
+          model : '3-c2',
+          dodatno : 'nista',
+          opis_k : 'crklo',
+          opis_s : 'matična ploča',
+          cijena : 1234
+        },
+        marke : [ 'sony', 'vaio'],
+        vrste : [ 'tablet', 'desktop' ],
+        nalozi : []
+      }
+    });
+    
+  </script>
+
+   {% endverbatim %}
 </body>
 </html>
 

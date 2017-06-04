@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\servis",
+    "\\servis\\templates"
   ],
-  "SelectedNode": "\\openshift",
+  "SelectedNode": "\\servis\\templates\\models.py",
   "PreviewInSolutionExplorer": false
 }

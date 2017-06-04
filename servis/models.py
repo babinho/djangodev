@@ -18,7 +18,7 @@ class Status(models.Model):
     status = models.CharField(max_length=50)
 
 class Nalog(models.Model):
-    serviser = models.ForeignKey(User)
+    serviser = models.ForeignKey(User, null=True)
     kupac = models.ForeignKey(Kupac)
     marka = models.ForeignKey(Marka)
     vrsta = models.ForeignKey(Vrsta)
